@@ -16,3 +16,7 @@ public class AvroKeyValueInputFormatNotSplittable<K, V> extends AvroKeyValueInpu
 ```
 - for basic usage example see AssumedPartitionsSuite test
 
+## Compatability
+- current code works with spark 1.5.1
+- in general each version of spark may require changes to this code
+
