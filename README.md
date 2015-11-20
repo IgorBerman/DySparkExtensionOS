@@ -1,9 +1,8 @@
 # DySparkExtensionOS
 Open sourcing internal extension for Apache Spark we've developed in DynamicYield.
 ## Description
-- Extension is about loading data from persistent storage with assuming partitions.
-- Usually when you save partitioned RDD to hdfs/s3 and want to load it next day(or on next iteration),
-the information regarding partitioner is lost.
+- Extension tries to solve problem of loading persisted data and providing partitioner
+- Usually when you save partitioned RDD to hdfs/s3 and want to load it next day(or on next iteration) in different spark context the information regarding partitioner is lost
 - The extension is based on [Spark PR by Imran Rashid which wasn't merged into master branch](https://github.com/apache/spark/pull/4449)
 - _Important Detail_ : You should disable input splits first - usually you'll take your InputFormat, extend it and override isSplittable method e.g.
 ```
@@ -14,7 +13,7 @@ public class AvroKeyValueInputFormatNotSplittable<K, V> extends AvroKeyValueInpu
 	}
 }
 ```
-- for basic usage example see AssumedPartitionsSuite test
+- for basic usage example see AssumedPartitionsPairRDDFunctionsSuite.scala
 
 ## Compatability
 - current code works with spark 1.5.1
