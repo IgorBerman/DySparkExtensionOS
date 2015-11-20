@@ -20,3 +20,5 @@ public class AvroKeyValueInputFormatNotSplittable<K, V> extends AvroKeyValueInpu
 - current code works with spark 1.5.1
 - in general each version of spark may require changes to this code
 
+## Declaimer
+We are not scala experts, so please try not to vomit from our scala code. In general our spark code base is in java 7 and we write in scala only on special cases when we need add java api wrapper over scala api or to implement some extension to core spark. Thanks for understanding and suggestions are welcome!
